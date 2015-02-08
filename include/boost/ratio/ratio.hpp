@@ -45,6 +45,12 @@ time2_demo contained this comment:
 #include <boost/core/enable_if.hpp>
 #include <boost/integer_traits.hpp>
 #include <boost/ratio/ratio_fwd.hpp>
+
+#ifdef BOOST_MSVC
+#pragma warning(push)
+#pragma warning(disable: 4307) // integral constant overflow
+#endif
+
 #include <boost/ratio/detail/overflow_helpers.hpp>
 #ifdef BOOST_RATIO_EXTENSIONS
 #include <boost/rational.hpp>
@@ -289,5 +295,8 @@ struct ratio_power<R, -1> : ratio_divide<ratio<1>, R>::type {};
 #endif
 }  // namespace boost
 
+#ifdef BOOST_MSVC
+#pragma warning(pop)
+#endif
 
 #endif  // BOOST_RATIO_RATIO_HPP

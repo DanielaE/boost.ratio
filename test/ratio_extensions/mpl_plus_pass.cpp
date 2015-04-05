@@ -20,6 +20,10 @@
 #define NOTHING ""
 #endif
 
+#ifdef BOOST_MSVC
+# pragma warning(disable: 4100) // unreferenced formal parameter
+#endif
+
 void test()
 {
     {

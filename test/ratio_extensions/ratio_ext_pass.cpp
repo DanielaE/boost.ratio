@@ -8,6 +8,10 @@
 #include <boost/ratio/ratio.hpp>
 #include <boost/detail/lightweight_test.hpp>
 
+#ifdef BOOST_MSVC
+# pragma warning(disable: 4100) // unreferenced formal parameter
+#endif
+
 boost::intmax_t func(boost::ratio<5,6>  s);
 
 boost::intmax_t func(boost::ratio<5,6>  s) {
